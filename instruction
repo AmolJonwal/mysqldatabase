@@ -1,0 +1,30 @@
+mysql mariadb setup 
+
+Install MySQL server package on server using yum.
+You can either install Mysql or MariaDB both should work.
+
+sudo yum install mariadb-server
+sudo yum install https://dev.mysql.com/get/mysql57-community-release-el7-9.noarch.rpm
+ sudo yum install mysql-community-server
+sudo service mysqld start
+ 
+ ==== find passwd into logs file========
+ sudo cat /var/log/mysqld.log | grep -i password
+mysql -u root -p
+
+for set own passwd 
+
+ALTER USER 'root'@'localhost' IDENTIFIED BY 'MyNewPass';
+FLUSH PRIVILEGES;
+
+===== HOW TO CREATE DATABASES=========
+mysql>CREATE DATABASE <database name> 
+mysql> SHOW DATABASES;
+
+====for deleting databases into mysql
+mysql> DROP DATABASE <database name>;
+
+====how to create an user into a mysql===
+ CREATE USER 'kk_user'@'localhost' IDENTIFIED BY 'S3cure#3214';
+
+GRANT ALL PRIVILEGES ON kk_db.* TO 'kk_user'@'localhost';
